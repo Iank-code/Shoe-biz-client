@@ -4,15 +4,19 @@ import Image from "next/image";
 
 export default function Cart() {
   return (
-    <div className="flex cursor-pointer items-center inherit">
+    <div className="flex cursor-pointer items-center inherit mobile:hidden">
       <Image src={cart} width={50} alt={cart} />
       <div
-        className="bg-black text-white rounded-[50%] p-[8px]"
         style={{
           position: "absolute",
+          backgroundColor: "black !important",
           top: "1em",
           right: "2.6em",
+          padding: "8px",
+          borderRadius: "50%",
+          color: "white",
         }}
+        className="mobile:hidden"
       >
         <span>23</span>
       </div>

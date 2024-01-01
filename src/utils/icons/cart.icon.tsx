@@ -18,7 +18,7 @@ export default function Cart() {
         }}
         className="mobile:hidden"
       >
-        <span>23</span>
+        <span>0</span>
       </div>
     </div>
   );

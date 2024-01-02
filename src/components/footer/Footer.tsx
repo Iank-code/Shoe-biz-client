@@ -74,12 +74,14 @@ export default function Footer() {
                 Join Us
               </button>
             </form>
-            <span className="text-[12px] ">
-              By signing up you're agreeing to our Terms & Conditions and
+            <span className="text-[14px] ">
+              By signing up you&apos;re agreeing to our Terms & Conditions and
               Privacy Policy
             </span>
 
-            <strong className="mt-[5em] mobile:mt-[1em]">All Rights Reserve</strong>
+            <strong className="mt-[5em] mobile:mt-[1em]">
+              All Rights Reserve
+            </strong>
           </div>
         </div>
       </div>

@@ -1,0 +1,8 @@
+@media screen and (max-width: 400px) {
+  .top-landing {
+    position: relative !important;
+    left: 4em !important;
+    height: 400px !important;
+    width: 400px !important;
+  }
+}

@@ -15,7 +15,7 @@ interface FooterItem {
 export default function Footer() {
   return (
     <div>
-      <div className="flex items-start justify-evenly mx-[7em] my-[2em]">
+      <div className="flex items-start justify-evenly mx-[7em] my-[2em] mobile:grid mobile:grid-cols-2 mobile:gap-3 mobile:mx-[2em] mobile:place-items-start">
         {footer_links.map((items: FooterItem, index: number) => {
           return (
             <div key={index} className="flex flex-col gap-3">

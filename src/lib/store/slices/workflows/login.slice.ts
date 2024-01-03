@@ -8,18 +8,6 @@ const initialState: loginItem = {
   accessToken: "",
 };
 
-// export const loginSlice = createSlice({
-//   name: "login_slice",
-//   initialState,
-//   reducers: {
-//     updateLoginState: (state, action) => {
-//       state.id = action.payload.id;
-//       state.imageUrl = action.payload.imageUrl;
-//       state.accessToken = action.payload.accessToken;
-//     },
-//   },
-// });
-
 export const loginSlice = createSlice({
   name: "login_slice",
   initialState,

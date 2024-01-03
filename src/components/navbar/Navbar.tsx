@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { IconMenu, IconUserCircle } from "@tabler/icons-react";
+import { IconMenu, IconUserCircle, IconX } from "@tabler/icons-react";
 import arrowDown from "./../../../public/navbar/arrow_down.svg";
 import search from "./../../../public/navbar/search.svg";
 import Image from "next/image";
@@ -9,15 +9,36 @@ import Cart from "@/utils/icons/cart.icon";
 import { nav_top_url } from "@/utils/helpers/url.helper";
 import Link from "next/link";
 import AuthModal from "@/utils/authModal/Auth.modal";
+import Sidebar from "./sidebar/Sidebar";
 
 export default function Navbar() {
   const [openAuthModal, setOpenAuthModal] = useState<boolean>(false);
+  const [openSideBar, setOpenSideBar] = useState<boolean>(false);
   return (
     <>
+      {openSideBar ? <Sidebar /> : null}
+
       <div className="flex justify-between px-[3em] pt-[2em] mobile:gap-5 mobile:px-[20px]">
-        <div className="flex items-center gap-3">
-          <IconMenu className="hidden mobile:flex" />
-          <span className="flex nowrap mobile:text-lg gap-3">Shoe</span>
+        <div className="flex items-center gap-6">
+          {!openSideBar ? (
+            <IconMenu
+              className="hidden mobile:flex"
+              onClick={() => {
+                setOpenSideBar(true);
+              }}
+            />
+          ) : (
+            <IconX
+              className="hidden mobile:flex"
+              onClick={() => {
+                console.log(false);
+                setOpenSideBar(false);
+              }}
+            />
+          )}
+          <Link href="/" className="flex nowrap mobile:text-lg gap-3">
+            Shoe
+          </Link>
         </div>
 
         <div className="flex gap-5">

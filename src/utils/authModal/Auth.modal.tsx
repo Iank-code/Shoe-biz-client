@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 export default function AuthModal() {
@@ -10,8 +11,12 @@ export default function AuthModal() {
         padding: "16px",
       }}
     >
-      <span className="cursor-pointer hover:text-[blue]">Login</span>
-      <span className="cursor-pointer hover:text-red-500">Register</span>
+      <Link href="/login" className="cursor-pointer hover:text-[blue]">
+        Login
+      </Link>
+      <Link href="/login" className="cursor-pointer hover:text-red-500">
+        Register
+      </Link>
     </div>
   );
 }

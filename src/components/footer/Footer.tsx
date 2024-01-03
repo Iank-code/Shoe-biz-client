@@ -17,7 +17,7 @@ interface FooterItem {
   links: LinkItem[];
 }
 
-const marketImgs = [
+export const marketImgs = [
   { img: twitterImg, href: "twitter.com" },
   { img: facbookImg, href: "facebook.com" },
   { img: instagramImg, href: "instagram.com" },

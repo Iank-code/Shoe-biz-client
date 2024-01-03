@@ -106,6 +106,14 @@ export const footer_links = [
     name: "Company Info",
     links: [
       {
+        link: "Login",
+        href: "/login",
+      },
+      {
+        link: "Create Account",
+        href: "/register",
+      },
+      {
         link: "About Us",
         href: "/#",
       },
@@ -116,3 +124,4 @@ export const footer_links = [
     ],
   },
 ];
+

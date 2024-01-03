@@ -11,7 +11,7 @@ export default function Sidebar({ setOpenSideBar }: any) {
   return (
     <AnimatePresence>
       <motion.aside
-        className="h-[100vh] w-[220px] pt-[2.3em] px-[1.5em] bg-white text-black z-[999] absolute"
+        className="h-[100vh] w-[200px] pt-[2.3em] px-[1.5em] bg-white text-black z-[999] absolute"
         initial={{ width: 0 }}
         animate={{ width: 300 }}
         exit={{ width: 0, transition: { delay: 1, duration: 0.5 } }}

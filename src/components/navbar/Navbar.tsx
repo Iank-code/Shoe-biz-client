@@ -16,26 +16,18 @@ export default function Navbar() {
   const [openSideBar, setOpenSideBar] = useState<boolean>(false);
   return (
     <>
-      {openSideBar ? <Sidebar /> : null}
+      {openSideBar ? <Sidebar setOpenSideBar={setOpenSideBar} /> : null}
 
       <div className="flex justify-between px-[3em] pt-[2em] mobile:gap-5 mobile:px-[20px]">
-        <div className="flex items-center gap-6">
-          {!openSideBar ? (
+        <div className="flex items-center gap-4">
+          
             <IconMenu
               className="hidden mobile:flex"
               onClick={() => {
                 setOpenSideBar(true);
               }}
             />
-          ) : (
-            <IconX
-              className="hidden mobile:flex"
-              onClick={() => {
-                console.log(false);
-                setOpenSideBar(false);
-              }}
-            />
-          )}
+          
           <Link href="/" className="flex nowrap mobile:text-lg gap-3">
             Shoe
           </Link>
@@ -52,7 +44,7 @@ export default function Navbar() {
               src={search}
               width={30}
               alt={search}
-              className="absolute right-[13em] z-[999] bg-white pl-[5px] mobile:absolute mobile:right-[2em]"
+              className="absolute right-[13em] z-[999] bg-white pl-[5px] mobile:absolute mobile:right-[3em]"
             />
           </div>
 

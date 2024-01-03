@@ -42,7 +42,7 @@ export default function LoginPage() {
             <div className="flex gap-2">
               {images.map((image, index) => {
                 return (
-                  <a href={image.href}>
+                  <a href={image.href} key={index}>
                     <Image src={image.image} height={45} alt="image" />
                   </a>
                 );

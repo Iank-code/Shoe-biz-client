@@ -25,6 +25,7 @@ export default function LoginPage() {
     },
   ];
 
+  const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   return (
@@ -39,7 +40,7 @@ export default function LoginPage() {
       >
         <div className="flex flex-col gap-[2em]">
           <div className="flex flex-col gap-1">
-            <span>Login with</span>
+            <span>Register with</span>
             <div className="flex gap-2">
               {images.map((image, index) => {
                 return (
@@ -52,6 +53,17 @@ export default function LoginPage() {
           </div>
 
           <div className="flex flex-col items-start gap-4">
+            <label>
+              Username:
+              <br />
+              <input
+                type="text"
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Enter your username"
+                className="border-2 focus:border-sky-500 focus:ring-sky-500 focus:outline-none rounded-md px-4 py-2 mobile:px-2 mobile:w-[200px]"
+              />
+            </label>
+
             <label>
               Email:
               <br />
@@ -84,7 +96,6 @@ export default function LoginPage() {
           </div>
         </div>
       </form>
-
       <Footer />
     </div>
   );

@@ -16,18 +16,19 @@ export default function Navbar() {
   const [openSideBar, setOpenSideBar] = useState<boolean>(false);
   return (
     <>
-      {openSideBar ? <Sidebar setOpenSideBar={setOpenSideBar} /> : null}
+      {openSideBar ? (
+        <Sidebar setOpenSideBar={setOpenSideBar} openSideBar={openSideBar} />
+      ) : null}
 
       <div className="flex justify-between px-[3em] pt-[2em] mobile:gap-5 mobile:px-[20px]">
         <div className="flex items-center gap-4">
-          
-            <IconMenu
-              className="hidden mobile:flex"
-              onClick={() => {
-                setOpenSideBar(true);
-              }}
-            />
-          
+          <IconMenu
+            className="hidden mobile:flex"
+            onClick={() => {
+              setOpenSideBar(true);
+            }}
+          />
+
           <Link href="/" className="flex nowrap mobile:text-lg gap-3">
             Shoe
           </Link>

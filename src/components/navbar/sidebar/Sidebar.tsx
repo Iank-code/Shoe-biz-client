@@ -7,16 +7,20 @@ import { footer_links } from "@/utils/helpers/footer.helper";
 import { marketImgs } from "@/components/footer/Footer";
 import Image from "next/image";
 
-export default function Sidebar({ setOpenSideBar }: any) {
+export default function Sidebar({ setOpenSideBar, openSideBar }: any) {
   return (
     <AnimatePresence>
       <motion.aside
-        className="h-[100vh] w-[200px] pt-[2.3em] px-[1.5em] bg-white text-black z-[999] absolute"
+        className="h-[100vh] w-[200px] pt-[2.3em] px-[1.5em] bg-white text-black z-[999] fixed"
         initial={{ width: 0 }}
-        animate={{ width: 300 }}
-        exit={{ width: 0, transition: { delay: 1, duration: 0.5 } }}
+        animate={{ width: 270 }}
+        exit={{
+          width: 0,
+          opacity: 0,
+          transition: { delay: 1000, duration: 50 },
+        }}
       >
-        <div className="flex justify-between mb-[2em]">
+        <motion.div className="flex justify-between mb-[2em]">
           <span>Shoe biz </span>
           <IconX
             className="hidden mobile:flex "
@@ -24,8 +28,8 @@ export default function Sidebar({ setOpenSideBar }: any) {
               setOpenSideBar(false);
             }}
           />
-        </div>
-        <div className="flex flex-col gap-2 mb-[2em]">
+        </motion.div>
+        <motion.div className="flex flex-col gap-2 mb-[2em]">
           {nav_top_url.map((link, index) => {
             return (
               <Link href={link} key={index}>
@@ -33,9 +37,9 @@ export default function Sidebar({ setOpenSideBar }: any) {
               </Link>
             );
           })}
-        </div>
+        </motion.div>
 
-        <div className="flex flex-col gap-2 mb-[2em]">
+        <motion.div className="flex flex-col gap-2 mb-[2em]">
           {footer_links[3].links.map((link, index) => {
             return (
               <Link href={link.href} key={index}>
@@ -43,9 +47,9 @@ export default function Sidebar({ setOpenSideBar }: any) {
               </Link>
             );
           })}
-        </div>
+        </motion.div>
 
-        <div className="flex gap-2 mb-[2em]">
+        <motion.div className="flex gap-2 mb-[2em]">
           {marketImgs.map((icon, index) => {
             return (
               <a href={icon.href} target="_black" key={index}>
@@ -53,7 +57,7 @@ export default function Sidebar({ setOpenSideBar }: any) {
               </a>
             );
           })}
-        </div>
+        </motion.div>
       </motion.aside>
     </AnimatePresence>
   );

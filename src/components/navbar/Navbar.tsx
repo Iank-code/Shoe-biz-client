@@ -20,8 +20,8 @@ export default function Navbar() {
         <Sidebar setOpenSideBar={setOpenSideBar} openSideBar={openSideBar} />
       ) : null}
 
-      <div className="flex justify-between px-[3em] pt-[2em] mobile:gap-5 mobile:px-[20px]">
-        <div className="flex items-center gap-4">
+      <div className="flex justify-between px-[3em] pt-[2em] mobile:gap-3 mobile:justify-evenly mobile:px-[15px]">
+        <div className="flex items-center gap-2">
           <IconMenu
             className="hidden mobile:flex"
             onClick={() => {
@@ -29,7 +29,10 @@ export default function Navbar() {
             }}
           />
 
-          <Link href="/" className="flex nowrap mobile:text-lg gap-3">
+          <Link
+            href="/"
+            className="flex nowrap mobile:text-lg gap-3 mobile:text-[15px] z-[999]"
+          >
             Shoe
           </Link>
         </div>
@@ -45,11 +48,11 @@ export default function Navbar() {
               src={search}
               width={30}
               alt={search}
-              className="absolute right-[13em] z-[999] bg-white pl-[5px] mobile:absolute mobile:right-[3em]"
+              className="absolute right-[13em] z-[999] bg-white pl-[5px] mobile:absolute mobile:right-[5.9em] mobile:w-[28px]"
             />
           </div>
 
-          <div className="flex flex-col gap-[2em]">
+          <div className="flex flex-col gap-[2em] mobile:hidden">
             <div
               className="flex cursor-pointer items-center mobile:hidden"
               onClick={() => {

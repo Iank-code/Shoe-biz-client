@@ -15,7 +15,7 @@ export default function Navbar() {
   const [openAuthModal, setOpenAuthModal] = useState<boolean>(false);
   const [openSideBar, setOpenSideBar] = useState<boolean>(false);
   return (
-    <>
+    <div>
       {openSideBar ? (
         <Sidebar setOpenSideBar={setOpenSideBar} openSideBar={openSideBar} />
       ) : null}
@@ -80,6 +80,6 @@ export default function Navbar() {
           );
         })}
       </div>
-    </>
+    </div>
   );
 }

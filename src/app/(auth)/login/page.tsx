@@ -1,13 +1,11 @@
 "use client";
 
-import Navbar from "@/components/navbar/Navbar";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import linkedIn from "./../../../../public/auth/linkedin.svg";
 import facebook from "./../../../../public/auth/facebook.svg";
 import google from "./../../../../public/auth/google.svg";
 import Image from "next/image";
-import Footer from "@/components/footer/Footer";
 
 export default function LoginPage() {
   const images = [
@@ -29,7 +27,6 @@ export default function LoginPage() {
   const [password, setPassword] = useState<string>("");
   return (
     <div>
-      <Navbar />
       <form
         className="flex flex-col justify-center items-center gap-4 py-[5em]"
         onSubmit={(e) => {
@@ -84,8 +81,6 @@ export default function LoginPage() {
           </div>
         </div>
       </form>
-
-      <Footer />
     </div>
   );
 }

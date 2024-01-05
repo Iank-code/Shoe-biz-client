@@ -14,7 +14,7 @@ export default function AuthModal() {
       <Link href="/login" className="cursor-pointer hover:text-[blue]">
         Login
       </Link>
-      <Link href="/login" className="cursor-pointer hover:text-red-500">
+      <Link href="/register" className="cursor-pointer hover:text-red-500">
         Register
       </Link>
     </div>

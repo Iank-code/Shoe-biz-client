@@ -2,7 +2,7 @@ import React from "react";
 import cart from "./../../../public/navbar/cart.svg";
 import Image from "next/image";
 import Link from "next/link";
-import "./icons.css"
+import "./icons.css";
 
 export default function Cart() {
   return (

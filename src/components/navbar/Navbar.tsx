@@ -31,7 +31,7 @@ export default function Navbar() {
 
           <Link
             href="/"
-            className="flex nowrap mobile:text-lg gap-3 mobile:text-[15px] z-[999]"
+            className="flex nowrap mobile:text-lg gap-3 mobile:text-[15px]"
           >
             Shoe
           </Link>

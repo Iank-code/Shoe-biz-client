@@ -13,7 +13,7 @@ export default function Products() {
   return (
     <div className="py-[2em] grid grid-cols-4 px-4 gap-9">
       {data.map((product, index) => (
-        <Product key={index} {...product} />
+        <Product key={index} {...product}/>
       ))}
     </div>
   );

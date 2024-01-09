@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import loginSlice from "./slices/workflows/login.slice";
+import cartSlice from "./slices/workflows/cart.slice";
 
 /*
 const middleware = (getDefaultMiddleware) => {
@@ -23,6 +24,7 @@ const store = configureStore({
 const store = configureStore({
   reducer: {
     login: loginSlice,
+    cart: cartSlice,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

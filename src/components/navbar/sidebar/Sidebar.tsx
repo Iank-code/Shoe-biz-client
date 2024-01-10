@@ -13,7 +13,7 @@ export default function Sidebar({ setOpenSideBar, openSideBar }: any) {
       <motion.aside
         className="h-[100vh] w-[200px] pt-[2.3em] px-[1.5em] bg-white text-black z-[999] fixed"
         initial={{ width: 0 }}
-        animate={{ width: 270 }}
+        animate={{ width: 230 }}
         exit={{
           width: 0,
           opacity: 0,

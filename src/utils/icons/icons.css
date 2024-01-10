@@ -1,11 +1,11 @@
 .cart-icon {
-  /* position: absolute;
+  position: absolute;
   background-color: black !important;
   top: 1em;
   right: 3em;
   padding: 8px;
   border-radius: 50%;
-  color: white; */
+  color: white;
 
   @media screen and (max-width: 400px) {
     position: absolute;

@@ -11,9 +11,9 @@ export default function Products() {
       .then((data) => setData(data.data));
   }, []);
   return (
-    <div className="py-[2em] grid grid-cols-4 px-4 gap-9">
+    <div className="py-[2em] grid grid-cols-4 px-4 gap-9 mobile:gap-3 mobile:grid-cols-2">
       {data.map((product, index) => (
-        <Product key={index} {...product}/>
+        <Product key={index} {...product} />
       ))}
     </div>
   );

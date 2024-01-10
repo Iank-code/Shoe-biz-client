@@ -33,12 +33,6 @@ const cartSlice = createSlice({
         state.push({ product, quantity });
       }
     },
-    // removeFromCart: (state, action: PayloadAction<string>) => {
-    //   const productId = action.payload;
-    //   console.log("Removing product from cart", productId);
-    //   // Return a new array without the specified product
-    //   return state.filter((item) => item.product.id !== productId);
-    // },
     removeFromCart: (state, action: PayloadAction<string>) => {
       const productId = action.payload;
       console.log("Removing product from cart", productId);
@@ -59,22 +53,22 @@ const cartSlice = createSlice({
       return state;
     },
 
-    // increaseQuantity: (state, action: PayloadAction<CartItem>) => {
-    //   const { product: productId, quantity } = action.payload;
-    //   const existingProductIndex = state.findIndex(
-    //     (p) => p.product.id === productId
-    //   );
+    increaseQuantity: (state, action: PayloadAction<CartItem>) => {
+      const {product}  = action.payload;
+      const existingProductIndex = state.findIndex((p) => {
+        return p.product.id === product.id;
+      });
 
-    //   if (existingProductIndex >= 0) {
-    //     // Create a new array with the updated quantity
-    //     state[existingProductIndex] = {
-    //       ...state[existingProductIndex],
-    //       quantity: state[existingProductIndex].quantity + quantity,
-    //     };
-    //   }
-    // },
+      if (existingProductIndex >= 0) {
+        // Create a new array with the updated quantity
+        state[existingProductIndex] = {
+          ...state[existingProductIndex],
+          quantity: state[existingProductIndex].quantity + 1,
+        };
+      }
+    },
     decreaseQuantity: (state, action: PayloadAction<CartItem>) => {
-      const { product, quantity } = action.payload;
+      const { product } = action.payload;
       const existingProductIndex = state.findIndex(
         (p) => p.product.id === product.id
       );
@@ -84,7 +78,7 @@ const cartSlice = createSlice({
           // Create a new array with the decreased quantity
           state[existingProductIndex] = {
             ...state[existingProductIndex],
-            quantity: state[existingProductIndex].quantity - quantity,
+            quantity: state[existingProductIndex].quantity - 1,
           };
         } else {
           // Return a new array without the product if its quantity is 1
@@ -94,8 +88,7 @@ const cartSlice = createSlice({
     },
   },
 });
-// , increaseQuantity
-export const { addToCart, removeFromCart, decreaseQuantity } =
+export const { addToCart, removeFromCart, decreaseQuantity, increaseQuantity } =
   cartSlice.actions;
 
 // Define the RootState type
@@ -106,9 +99,9 @@ interface RootState {
 export const selectTotalAmount = (state: RootState) => {
   return state.cart.reduce((total, item) => {
     const numericValue: number = parseFloat(item.product.newPrice);
+    console.log({ total,num: numericValue * item.quantity });
     return total + numericValue * item.quantity;
   }, 0);
 };
-
 
 export default cartSlice.reducer;

@@ -4,6 +4,8 @@ import Navbar from "@/components/navbar/Navbar";
 import {
   selectTotalAmount,
   removeFromCart,
+  increaseQuantity,
+  decreaseQuantity,
 } from "@/lib/store/slices/workflows/cart.slice";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -64,11 +66,17 @@ export default function page() {
                       </button>
 
                       <div className="flex gap-2">
-                        <button className="bg-blue-500 text-white py-[1]px px-3 outline-none rounded-sm text-lg">
+                        <button
+                          className="bg-blue-500 text-white py-[1]px px-3 outline-none rounded-sm text-lg"
+                          onClick={() => dispatch(decreaseQuantity(product))}
+                        >
                           -
                         </button>
                         <span>{product.quantity}</span>
-                        <button className="bg-blue-500 text-white py-[1]px px-3 outline-none rounded-sm text-lg">
+                        <button
+                          className="bg-blue-500 text-white py-[1]px px-3 outline-none rounded-sm text-lg"
+                          onClick={() => dispatch(increaseQuantity(product))}
+                        >
                           +
                         </button>
                       </div>

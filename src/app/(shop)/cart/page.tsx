@@ -1,23 +1,37 @@
 "use client";
 import Footer from "@/components/footer/Footer";
 import Navbar from "@/components/navbar/Navbar";
-import { selectTotalAmount } from "@/lib/store/slices/workflows/cart.slice";
+import {
+  selectTotalAmount,
+  removeFromCart,
+} from "@/lib/store/slices/workflows/cart.slice";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import trashIcon from "./../../../../public/navbar/trash.svg";
+import Image from "next/image";
+import { ProductType } from "@/utils/helpers/types";
+
+interface productTypes {
+  product: any;
+  index: number;
+}
 
 export default function page() {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  const cartState = useSelector((state) => state.cart);
+  const cartState = useSelector((state:any) => {
+    console.log(state);
+    return state.cart;
+  });
   const totalAmount = useSelector(selectTotalAmount);
   const cartData = cartState;
   return (
     <div>
       <Navbar />
-      <div className="flex gap-3 px-5 justify-center my-[3em]">
-        <div className="flex flex-col p-[2em] w-[75%]">
+      <div className="flex gap-3 px-5 justify-center my-[3em] mobile:flex-col mobile:justify-between">
+        <div className="flex flex-col p-[2em] w-[75%] mobile:w-[100vw] mobile:p-[20px]">
           {cartData &&
-            cartData.map((product, index) => {
+            cartData.map((product: any, index: number) => {
               console.log(product);
               return (
                 <div
@@ -34,7 +48,18 @@ export default function page() {
                     <span>{product.product.newPrice}</span>
                   </div>
                   <div className="flex items-center justify-between ml-[30em] mr-[10em]">
-                    <button>X</button>
+                    <button
+                      onClick={() =>
+                        dispatch(removeFromCart(product.product.id))
+                      }
+                    >
+                      <Image
+                        src={trashIcon}
+                        alt={`${trashIcon}.svg`}
+                        width={30}
+                        height={30}
+                      />
+                    </button>
 
                     <div className="flex gap-2">
                       <button className="bg-blue-500 text-white py-[1]px px-3 outline-none rounded-sm text-lg">
@@ -50,7 +75,7 @@ export default function page() {
               );
             })}
         </div>
-        <div className="flex flex-col shadow-xl p-[2em] w-[25%] items-start h-[10%]">
+        <div className="flex flex-col shadow-xl p-[2em] w-[25%] items-start h-[10%] mobile:w-[100vw]">
           <span>Cart summary</span>
           <div className="flex items-center gap-[1em]">
             <span>Total</span>

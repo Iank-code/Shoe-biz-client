@@ -16,7 +16,6 @@ const cartSlice = createSlice({
   reducers: {
     addToCart: (state, action: PayloadAction<CartItem>) => {
       const { product, quantity } = action.payload;
-      console.log("Price:", product.newPrice); // Log the newPrice
 
       const existingProductIndex = state.findIndex(
         (p) => p.product.id === product.id
@@ -35,7 +34,6 @@ const cartSlice = createSlice({
     },
     removeFromCart: (state, action: PayloadAction<string>) => {
       const productId = action.payload;
-      console.log("Removing product from cart", productId);
 
       // Find the index of the item with the specified productId
       const indexToRemove = state.findIndex(
@@ -99,7 +97,6 @@ interface RootState {
 export const selectTotalAmount = (state: RootState) => {
   return state.cart.reduce((total, item) => {
     const numericValue: number = parseFloat(item.product.newPrice);
-    console.log({ total,num: numericValue * item.quantity });
     return total + numericValue * item.quantity;
   }, 0);
 };

@@ -17,7 +17,6 @@ export default function page() {
   const dispatch = useDispatch();
 
   const cartState = useSelector((state: any) => {
-    console.log(state);
     return state.cart;
   });
   const totalAmount = useSelector(selectTotalAmount);
@@ -36,7 +35,6 @@ export default function page() {
                 },
                 index: number
               ) => {
-                console.log(product);
                 return (
                   <div
                     key={index}

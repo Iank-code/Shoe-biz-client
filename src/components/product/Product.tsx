@@ -37,12 +37,12 @@ export default function Product({
         <strong>Ksh: {newPrice}</strong>
       </div>
 
-      <button
+      {/* <button
         className="bg-[blue] text-white outline-none py-2 px-3 rounded-md mobile:py-1 mobile:text-[15px]"
         onClick={() => dispatch(addToCart({ product, quantity: 1 }))}
       >
         Add To Cart
-      </button>
+      </button> */}
     </div>
   );
 }

@@ -13,7 +13,7 @@ import trashIcon from "./../../../../public/navbar/trash.svg";
 import Image from "next/image";
 import { ProductType } from "@/utils/helpers/types";
 
-export default function page() {
+export default function Page() {
   const dispatch = useDispatch();
 
   const cartState = useSelector((state: any) => {

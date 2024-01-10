@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-
+import AppProviders from "@/components/providers";
+import { Provider } from "react-redux";
+import store from "@/lib/store";
+import { PropsWithChildren } from "react";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -9,14 +12,12 @@ export const metadata: Metadata = {
   description: "Best shoe seller in Africa",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: PropsWithChildren ) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
+      <html lang="en">
+        <body className={inter.className}>
+          <AppProviders>{children}</AppProviders>
+        </body>
+      </html>
   );
 }

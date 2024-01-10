@@ -1,16 +1,30 @@
 import { ProductType } from "@/utils/helpers/types";
 import Image from "next/image";
 import React from "react";
-// import { addToCart } from "@/lib/store/slices/workflows/cart.slice";
-// import { useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
+import { addToCart } from "@/lib/store/slices/workflows/cart.slice";
 
 export default function Product({
+  id,
   name,
-  images,
-  oldPrice,
+  description,
   newPrice,
+  oldPrice,
+  images,
+  tag,
+  shoeSize,
 }: ProductType) {
-  // const dispatch = useDispatch();
+  const product = {
+    id,
+    name,
+    description,
+    newPrice,
+    oldPrice,
+    images,
+    tag,
+    shoeSize,
+  };
+  const dispatch = useDispatch();
   return (
     <div className="shadow-md hover:shadow-xl cursor-pointer rounded-lg p-4">
       <img src={images[0]} alt="first.jpg" className="w-[300px] rounded-md" />
@@ -25,7 +39,7 @@ export default function Product({
 
       <button
         className="bg-[blue] text-white outline-none py-2 px-3 rounded-md"
-        // onClick={() => dispatch(addToCart({ product: name, quantity: 1 }))}
+        onClick={() => dispatch(addToCart({ product, quantity: 1 }))}
       >
         Add To Cart
       </button>

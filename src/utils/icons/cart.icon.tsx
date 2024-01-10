@@ -3,8 +3,12 @@ import cart from "./../../../public/navbar/cart.svg";
 import Image from "next/image";
 import Link from "next/link";
 import "./icons.css";
+import { useSelector, useDispatch } from "react-redux";
 
 export default function Cart() {
+  const cartState = useSelector((state: any) => state.cart);
+  const cartData = cartState;
+  console.log(cartData.length);
   return (
     <Link href="cart">
       <div className="flex cursor-pointer items-center inherit">
@@ -21,7 +25,7 @@ export default function Cart() {
           }}
           className="cart-icon"
         >
-          <span>0</span>
+          <span>{cartData ? cartData.length : 0}</span>
         </div>
       </div>
     </Link>

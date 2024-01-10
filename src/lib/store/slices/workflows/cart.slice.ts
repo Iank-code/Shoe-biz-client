@@ -33,12 +33,32 @@ const cartSlice = createSlice({
         state.push({ product, quantity });
       }
     },
+    // removeFromCart: (state, action: PayloadAction<string>) => {
+    //   const productId = action.payload;
+    //   console.log("Removing product from cart", productId);
+    //   // Return a new array without the specified product
+    //   return state.filter((item) => item.product.id !== productId);
+    // },
     removeFromCart: (state, action: PayloadAction<string>) => {
       const productId = action.payload;
       console.log("Removing product from cart", productId);
-      // Return a new array without the specified product
-      return state.filter((item) => item.product.id !== productId);
+
+      // Find the index of the item with the specified productId
+      const indexToRemove = state.findIndex(
+        (item) => item.product.id === productId
+      );
+
+      // If the item is found, remove it using splice
+      if (indexToRemove !== -1) {
+        const newState = [...state];
+        newState.splice(indexToRemove, 1);
+        return newState;
+      }
+
+      // If the item is not found, return the current state
+      return state;
     },
+
     // increaseQuantity: (state, action: PayloadAction<CartItem>) => {
     //   const { product: productId, quantity } = action.payload;
     //   const existingProductIndex = state.findIndex(

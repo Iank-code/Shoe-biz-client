@@ -24,52 +24,57 @@ export default function ProductViewPage({ params }: any) {
   return (
     <div>
       <Navbar />
-      {product && <div className="flex gap-4 px-[2em]">
-        <div></div>
-        <div>
-          <div className="flex flex-col items-start">
-            <Select
-              label="Size"
-              placeholder="Pick a size"
-              data={product && product.shoeSize}
-              defaultValue={product && product.shoeSize[0]}
-              clearable
-            />
-
-            <div className="flex gap-4">
-              <span className="line-through mobile:text-[12px] text-[15px] text-gray-600">
-                Ksh {product && product.oldPrice}
-              </span>
-
-              <strong>Ksh {product && product.newPrice}</strong>
-            </div>
-
-            <div className="flex gap-4">
-              <input
-                type="number"
-                className="border-2 focus:border-sky-500 focus:ring-sky-500 focus:outline-none rounded-md w-[6em]"
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                  setUnit(e.target.value)
-                }
-                value={unit}
+      {product && (
+        <div className="flex gap-4 px-[2em]">
+          <div></div>
+          <div>
+            <div className="flex flex-col items-start">
+              <Select
+                label="Size"
+                placeholder="Pick a size"
+                data={product && product.shoeSize}
+                defaultValue={product && product.shoeSize[0]}
+                clearable
               />
-              <button
-                className="bg-[blue] text-white outline-none py-2 px-3 rounded-md mobile:py-1 mobile:text-[15px]"
-                onClick={() =>
-                  dispatch(
-                    addToCart({
-                      product: product,
-                      quantity: numericValue,
-                    })
-                  )
-                }
-              >
-                Add to cart
-              </button>
+
+              <div className="flex gap-4">
+                <span className="line-through mobile:text-[12px] text-[15px] text-gray-600">
+                  Ksh {product && product.oldPrice}
+                </span>
+
+                <strong>Ksh {product && product.newPrice}</strong>
+              </div>
+
+              <div className="flex gap-4">
+                <input
+                  type="number"
+                  className="border-2 focus:border-sky-500 focus:ring-sky-500 focus:outline-none rounded-md w-[6em]"
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                    setUnit(e.target.value)
+                  }
+                  value={unit}
+                />
+                <button
+                  className="bg-[blue] text-white outline-none py-2 px-3 rounded-md mobile:py-1 mobile:text-[15px]"
+                  onClick={() =>
+                    dispatch(
+                      addToCart({
+                        product: product,
+                        quantity: numericValue,
+                      })
+                    )
+                  }
+                >
+                  Add to cart
+                </button>
+              </div>
             </div>
+            {/* <button className="border-2 focus:border-blue-500 focus:ring-blue-500 focus:outline-none text-blue-500 outline-none py-2 px-7 rounded-md mobile:py-1 mobile:text-[15px]">
+              Buy Now
+            </button> */}
           </div>
         </div>
-      </div>}
+      )}
       <Footer />
     </div>
   );

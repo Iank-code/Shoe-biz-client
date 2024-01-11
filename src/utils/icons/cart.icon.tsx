@@ -10,7 +10,7 @@ export default function Cart() {
   const cartData = cartState;
   const numOfItems = cartData ? cartData.length : 0;
   return (
-    <Link href="cart">
+    <Link href="/cart">
       <div className="flex cursor-pointer items-center inherit">
         <Image src={cart} width={50} alt={cart} className="mobile:w-[36px]" />
         <div

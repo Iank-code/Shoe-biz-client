@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import AppProviders from "@/components/providers";
-import { Provider } from "react-redux";
-import store from "@/lib/store";
 import { PropsWithChildren } from "react";
 const inter = Inter({ subsets: ["latin"] });
 

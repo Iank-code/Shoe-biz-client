@@ -15,7 +15,7 @@ export default function Navbar() {
   const [openAuthModal, setOpenAuthModal] = useState<boolean>(false);
   const [openSideBar, setOpenSideBar] = useState<boolean>(false);
   return (
-    <div>
+    <div className="fixed z-[999px] bg-white w-[100vw]">
       {openSideBar ? (
         <Sidebar setOpenSideBar={setOpenSideBar} openSideBar={openSideBar} />
       ) : null}
@@ -31,14 +31,14 @@ export default function Navbar() {
 
           <Link
             href="/"
-            className="flex nowrap mobile:text-lg gap-3 mobile:text-[15px]"
+            className="flex nowrap mobile:text-lg gap-3 mobile:text-[13px] mobile:w-[38px]"
           >
             Shoe
           </Link>
         </div>
 
         <div className="flex gap-5">
-          <div className="flex items-center">
+          <div className="flex items-center mobile:ml-[1em]">
             <input
               type="text"
               placeholder="I'm shopping for..."
@@ -48,7 +48,7 @@ export default function Navbar() {
               src={search}
               width={30}
               alt={search}
-              className="absolute right-[13em] z-[999] bg-white pl-[5px] mobile:absolute mobile:right-[5.9em] mobile:w-[28px]"
+              className="absolute right-[14em] z-[999] bg-white pl-[5px] mobile:relative mobile:right-[1.8em] mobile:w-[25px]"
             />
           </div>
 

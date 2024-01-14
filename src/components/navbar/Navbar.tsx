@@ -15,7 +15,7 @@ export default function Navbar() {
   const [openAuthModal, setOpenAuthModal] = useState<boolean>(false);
   const [openSideBar, setOpenSideBar] = useState<boolean>(false);
   return (
-    <div className="fixed z-[999px] bg-white w-[100vw]">
+    <div>
       {openSideBar ? (
         <Sidebar setOpenSideBar={setOpenSideBar} openSideBar={openSideBar} />
       ) : null}
@@ -74,7 +74,7 @@ export default function Navbar() {
       <div className="flex items-center gap-[5em] justify-center py-[2em] mt-[2em] mobile:gap-3 bg-[#D9D9D9]">
         {nav_top_url.map((link, index) => {
           return (
-            <Link href={link} key={index}>
+            <Link href={`/shoe/${link}`} key={index}>
               {link}
             </Link>
           );

@@ -25,7 +25,7 @@ export default function ProductViewPage({ params }: any) {
     <div>
       <Navbar />
       {product && (
-        <div className="flex gap-4 px-[2em]">
+        <div className="flex gap-4 px-[2em] mobile:mt-[15em]">
           <div></div>
           <div>
             <div className="flex flex-col items-start">
@@ -33,8 +33,8 @@ export default function ProductViewPage({ params }: any) {
                 label="Size"
                 placeholder="Pick a size"
                 data={product && product.shoeSize}
-                defaultValue={product && product.shoeSize[0]}
-                clearable
+                defaultValue="40"
+                allowDeselect={false}
               />
 
               <div className="flex gap-4">

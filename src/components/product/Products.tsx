@@ -16,7 +16,7 @@ export default function Products() {
       {data.map((product, index) => (
         <Link
           key={index}
-          href={`product/${product.id}`}
+          href={`/product/${product.id}`}
           className="shadow-md hover:shadow-xl"
         >
           <Product {...product} />

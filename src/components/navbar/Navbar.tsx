@@ -48,7 +48,7 @@ export default function Navbar() {
               src={search}
               width={30}
               alt={search}
-              className="absolute right-[14em] z-[999] bg-white pl-[5px] mobile:relative mobile:right-[1.8em] mobile:w-[25px]"
+              className="relative right-[3em] z-[999] bg-white pl-[5px] mobile:relative mobile:right-[1.8em] mobile:w-[25px]"
             />
           </div>
 

@@ -5,7 +5,7 @@ import { theme } from "./theme";
 import { Provider } from "react-redux";
 import store, { persistor } from "@/lib/store";
 import { PersistGate } from "redux-persist/integration/react";
-// import "@mantine/core/styles.css";
+import "@mantine/core/styles.css";
 
 
 const AppProviders = ({ children }: PropsWithChildren) => {

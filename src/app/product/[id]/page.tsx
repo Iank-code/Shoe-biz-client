@@ -12,6 +12,8 @@ export default function ProductViewPage({ params }: any) {
   const [product, setProduct] = useState<ProductType>();
   const [unit, setUnit] = useState<string>("1");
 
+  const colors: string[] = ["red", "blue", "gray", "black"];
+
   useEffect(() => {
     fetch(`http://localhost:5000/api/v1/product/product/${params.id}`)
       .then((res) => res.json())
@@ -27,8 +29,9 @@ export default function ProductViewPage({ params }: any) {
       {product && (
         <div className="flex gap-4 px-[2em] mobile:mt-[15em]">
           <div></div>
-          <div>
-            <div className="flex flex-col items-start">
+          <div className="flex gap-6 justify-center">
+            <div className="flex flex-col items-start justify-center mt-[2em] gap-4">
+              <img src={product.images[0]} className="rounded-lg" />
               <Select
                 label="Size"
                 placeholder="Pick a size"
@@ -67,6 +70,23 @@ export default function ProductViewPage({ params }: any) {
                 >
                   Add to cart
                 </button>
+              </div>
+            </div>
+            <div>
+              <h2>
+                <strong>{product.name}</strong>
+              </h2>
+              <h3>{product.description}</h3>
+              <div className="flex gap-3">
+                {product.tag.map((item, index) => (
+                  <span
+                    key={index}
+                    style={{ backgroundColor: `${colors[index]}` }}
+                    className="text-white px-2 py-1 rounded-md"
+                  >
+                    {item}
+                  </span>
+                ))}
               </div>
             </div>
             {/* <button className="border-2 focus:border-blue-500 focus:ring-blue-500 focus:outline-none text-blue-500 outline-none py-2 px-7 rounded-md mobile:py-1 mobile:text-[15px]">

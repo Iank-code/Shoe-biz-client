@@ -15,7 +15,7 @@ export default function Navbar() {
   const [openAuthModal, setOpenAuthModal] = useState<boolean>(false);
   const [openSideBar, setOpenSideBar] = useState<boolean>(false);
   return (
-    <div>
+    <div data-testid="navbar">
       {openSideBar ? (
         <Sidebar setOpenSideBar={setOpenSideBar} openSideBar={openSideBar} />
       ) : null}
@@ -56,7 +56,6 @@ export default function Navbar() {
             <div
               className="flex cursor-pointer items-center mobile:hidden"
               onClick={() => {
-                console.log("clicked");
                 setOpenAuthModal(!openAuthModal);
               }}
             >

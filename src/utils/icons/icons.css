@@ -1,5 +1,4 @@
 .cart-icon {
-  /* display: flex; */
   position: flex;
   background-color: red !important;
   padding: 8px;
@@ -7,9 +6,6 @@
   color: white;
 
   @media screen and (max-width: 400px) {
-    /* position: absolute;
-    right: 1em !important;
-    padding: 5px !important; */
     display: flex !important;
   }
 }

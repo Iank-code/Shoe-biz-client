@@ -32,6 +32,7 @@ export default function Page() {
                 product: {
                   product: ProductType;
                   quantity: number;
+                  size: string
                 },
                 index: number
               ) => {
@@ -46,7 +47,10 @@ export default function Page() {
                         alt={product.product.images[0]}
                         className="w-[200px]"
                       />
-                      <span>{product.product.name}</span>
+                      <div className="flex flex-col">
+                        <span>{product.product.name}</span>
+                        <span>size: {product.size}</span>
+                      </div>
                       <span>{product.product.newPrice}</span>
                     </div>
                     <div className="flex items-center justify-between ml-[30em] mr-[10em]">

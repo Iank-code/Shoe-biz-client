@@ -5,6 +5,7 @@ import { ProductType } from "@/utils/helpers/types";
 interface CartItem {
   product: ProductType;
   quantity: number;
+  size: string;
 }
 
 // Define the initial state
@@ -15,7 +16,7 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action: PayloadAction<CartItem>) => {
-      const { product, quantity } = action.payload;
+      const { product, quantity, size } = action.payload;
 
       const existingProductIndex = state.findIndex(
         (p) => p.product.id === product.id
@@ -29,7 +30,7 @@ const cartSlice = createSlice({
         };
       } else {
         // Create a new array with the new product and quantity
-        state.push({ product, quantity });
+        state.push({ product, quantity, size });
       }
     },
     removeFromCart: (state, action: PayloadAction<string>) => {
@@ -52,7 +53,7 @@ const cartSlice = createSlice({
     },
 
     increaseQuantity: (state, action: PayloadAction<CartItem>) => {
-      const {product}  = action.payload;
+      const { product } = action.payload;
       const existingProductIndex = state.findIndex((p) => {
         return p.product.id === product.id;
       });

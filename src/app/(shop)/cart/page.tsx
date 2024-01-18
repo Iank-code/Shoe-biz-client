@@ -21,6 +21,22 @@ export default function Page() {
   });
   const totalAmount = useSelector(selectTotalAmount);
   const cartData = cartState;
+
+  const createOrder = () => {
+    fetch("http://localhost:5000/api/v1/order/create", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        customerId: "081fd84a-a875-4caa-8616-832ccc4c8f34",
+        productsInfo: cartData,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data));
+  };
   return (
     <div>
       <Navbar />
@@ -32,7 +48,7 @@ export default function Page() {
                 product: {
                   product: ProductType;
                   quantity: number;
-                  size: string
+                  size: string;
                 },
                 index: number
               ) => {
@@ -97,7 +113,10 @@ export default function Page() {
               {totalAmount}
             </span>
           </div>
-          <button className="bg-blue-500 text-white py-1 px-3 outline-none rounded-md">
+          <button
+            className="bg-blue-500 text-white py-1 px-3 outline-none rounded-md"
+            onClick={createOrder}
+          >
             {/* Total Price */}
             Pay {totalAmount}
           </button>

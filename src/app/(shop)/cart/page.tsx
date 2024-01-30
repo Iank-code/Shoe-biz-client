@@ -19,6 +19,11 @@ export default function Page() {
   const cartState = useSelector((state: any) => {
     return state.cart;
   });
+
+  const loginState = useSelector((state: any) => {
+    return state.login;
+  });
+
   const totalAmount = useSelector(selectTotalAmount);
   const cartData = cartState;
 
@@ -28,9 +33,9 @@ export default function Page() {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
+        Authorization: `Bearer ${loginState.accessToken}`,
       },
       body: JSON.stringify({
-        customerId: "081fd84a-a875-4caa-8616-832ccc4c8f34",
         productsInfo: cartData,
       }),
     })

@@ -10,10 +10,18 @@ import { nav_top_url } from "@/utils/helpers/url.helper";
 import Link from "next/link";
 import AuthModal from "@/utils/authModal/Auth.modal";
 import Sidebar from "./sidebar/Sidebar";
+import { useSelector } from "react-redux";
+import UserDash from "@/utils/authModal/User.dash";
 
 export default function Navbar() {
   const [openAuthModal, setOpenAuthModal] = useState<boolean>(false);
   const [openSideBar, setOpenSideBar] = useState<boolean>(false);
+  const loginState = useSelector((state: any) => {
+    return state.login;
+  });
+
+  const authType = loginState.accessToken ? <UserDash /> : <AuthModal />;
+
   return (
     <div data-testid="navbar">
       {openSideBar ? (
@@ -63,7 +71,7 @@ export default function Navbar() {
               <Image src={arrowDown} width={20} alt={arrowDown} />
             </div>
 
-            {openAuthModal && <AuthModal />}
+            {openAuthModal && authType}
           </div>
 
           <Cart />

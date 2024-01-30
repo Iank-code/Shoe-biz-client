@@ -5,7 +5,7 @@ import Navbar from "@/components/navbar/Navbar";
 import Product from "@/components/product/Product";
 import { ProductType } from "@/utils/helpers/types";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { Profiler, useEffect, useState } from "react";
 
 const ProductPage = ({ params }: any) => {
   const [data, setData] = useState<ProductType[]>([]);
@@ -34,7 +34,10 @@ const ProductPage = ({ params }: any) => {
               href={`/product/${product.id}`}
               className="shadow-md hover:shadow-xl"
             >
+              <Profiler id="App" onRender={onRender}>
+
               <Product {...product} />
+              </Profiler>
             </Link>
           ))}
       </div>

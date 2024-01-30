@@ -1,5 +1,7 @@
 export type loginItem = {
-  id: string;
-  imageUrl: string;
+  profileImage: string;
+  name: string;
+  email: string;
+  phoneNumber: string;
   accessToken: string;
 };

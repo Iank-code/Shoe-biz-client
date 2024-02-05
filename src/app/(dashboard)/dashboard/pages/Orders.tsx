@@ -14,7 +14,6 @@ export default function Orders() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data === "Token is not valid") {
           // notifications.show({
           //   title: data,
@@ -31,24 +30,36 @@ export default function Orders() {
     <div className="flex flex-col gap-[4em] items-start justify-center mt-[3em]">
       {orders &&
         orders.map((order: any, index) => {
+          const calculateTotalAmount = order.customerOrderInfo.reduce(
+            (total: any, item: any) => {
+              // const numericValue = parseFloat
+              // console.log(item.productsInfo.map((shoe:any) => shoe.newPrice));
+              let price: number;
+              item.productsInfo.forEach((shoe: any) => {
+                price = parseFloat(shoe.newPrice);
+              });
+
+              const units = item.units
+            }
+          );
           return (
             <div key={index}>
               <div>
                 <h2>{order.id}</h2>
                 {order.customerOrderInfo.map((shoe: any) => {
-                  console.log(shoe);
                   return (
-                    <div key={shoe.id}>
+                    <div key={shoe.id} className="flex flex-col gap-[1em] mt-5">
                       {shoe.productsInfo.map((info: any) => {
                         return (
-                          <div key={info.id}>
+                          <div key={info.id} className="flex flex-col">
                             <span>{info.name}</span>
+                            <div className="flex gap-[20px]">
+                              <span>Ksh: {info.newPrice}</span>
+                              <span>size {shoe.shoeSize}</span>
+                            </div>
                           </div>
                         );
                       })}
-                      <div>
-                        <span>size {shoe.shoeSize}</span>
-                      </div>
                     </div>
                   );
                 })}

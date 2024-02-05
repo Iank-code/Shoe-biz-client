@@ -53,8 +53,6 @@ export default function LoginPage() {
                 })
               );
 
-              alert("Worked");
-
               // setUserData(data);
             });
 

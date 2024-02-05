@@ -1,10 +1,11 @@
+"use client";
 import { footer_links } from "@/utils/helpers/footer.helper";
 import twitterImg from "./../../../public/footer/svg/twitter.svg";
 import facbookImg from "./../../../public/footer/svg/facebook.svg";
 import linkedinImg from "./../../../public/footer/svg/linkedin.svg";
 import instagramImg from "./../../../public/footer/svg/instagram.svg";
 import Link from "next/link";
-import React from "react";
+import { useState } from "react";
 import Image from "next/image";
 
 interface LinkItem {
@@ -25,6 +26,7 @@ export const marketImgs = [
 ];
 
 export default function Footer() {
+  const [email, setEmail] = useState<string>("");
   return (
     <div>
       <div className="flex items-start justify-evenly mx-[7em] my-[2em] mobile:grid mobile:grid-cols-2 mobile:gap-3 mobile:mx-[2em] mobile:place-items-start">
@@ -61,11 +63,29 @@ export default function Footer() {
             </div>
           </div>
           <div className="flex flex-col gap-2">
-            <form className="flex gap-2 mobile:flex-col">
+            <form
+              className="flex gap-2 mobile:flex-col"
+              onSubmit={(e) => {
+                e.preventDefault();
+                fetch("http://localhost:5000/api/v1/newsletter/register", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({
+                    email,
+                  }),
+                })
+                  .then((res) => res.json())
+                  .then((data) => console.log(data.data));
+              }}
+            >
               <input
                 type="text"
                 placeholder="Enter email address"
                 className="border-2 rounded-md py-2 px-3 outline-none focus:border-sky-500 focus:ring-sky-500 focus:outline-none"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
               <button
                 type="submit"

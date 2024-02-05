@@ -4,7 +4,7 @@ import { Group, Code, Paper, Text } from "@mantine/core";
 import { IconSettings, IconReceipt2, IconLogout } from "@tabler/icons-react";
 import classes from "./userdash.module.scss";
 import Orders from "./pages/Orders";
-// import Setting from "./pages/Setting";
+import Setting from "./pages/Setting";
 import { IconArrowBackUp } from "@tabler/icons-react";
 import { useSelector } from "react-redux";
 
@@ -17,7 +17,7 @@ const tabsData = [
   {
     label: "Profile",
     icon: IconSettings,
-    content: "<Setting />",
+    content: <Setting />,
   },
 ];
 

@@ -1,3 +1,5 @@
+"use client";
+import { useMemo } from "react";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ProductType } from "@/utils/helpers/types";
 

@@ -4,6 +4,7 @@ import "./globals.css";
 import AppProviders from "@/components/providers";
 import { PropsWithChildren } from "react";
 const inter = Inter({ subsets: ["latin"] });
+import {WebVitals} from "./_components/web-vitals"
 
 export const metadata: Metadata = {
   title: "Shoe Game",
@@ -12,10 +13,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: PropsWithChildren ) {
   return (
-      <html lang="en">
-        <body className={inter.className}>
-          <AppProviders>{children}</AppProviders>
-        </body>
-      </html>
+    <html lang="en">
+      <body className={inter.className}>
+        <AppProviders>
+          {/* <WebVitals /> */}
+          {children}
+        </AppProviders>
+      </body>
+    </html>
   );
 }

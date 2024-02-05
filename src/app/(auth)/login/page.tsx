@@ -2,13 +2,17 @@
 
 import Footer from "@/components/footer/Footer";
 import Navbar from "@/components/navbar/Navbar";
+import usePost from "@/lib/hooks/usePost.hook";
+import { updateLoginState } from "@/lib/store/slices/workflows/login.slice";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 
 export default function LoginPage() {
-
+  const dispatch = useDispatch();
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [userData, setUserData] = useState();
   return (
     <div>
       <Navbar />
@@ -16,7 +20,43 @@ export default function LoginPage() {
         className="flex flex-col justify-center items-center gap-4 py-[5em]"
         onSubmit={(e) => {
           e.preventDefault();
-          console.log({ email, password });
+          // const { userData } = usePost(
+          //   email,
+          //   password,
+          //   "http://localhost:5000/api/v1/customer/login"
+          // );
+          fetch("http://localhost:5000/api/v1/customer/login", {
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ email, password }),
+          })
+            .then((res) => {
+              if (!res.ok) {
+                throw new Error("Could not fetch data from server");
+              }
+              return res.json();
+            })
+            .then((data) => {
+              if (data.status !== 200) {
+              }
+
+              dispatch(
+                updateLoginState({
+                  name: data.data.user.name,
+                  email: data.data.user.email,
+                  phoneNumber: data.data.user.phoneNumber,
+                  profileImage: data.data.user.profileImage,
+                  accessToken: data.data.access_token,
+                })
+              );
+
+              // setUserData(data);
+            });
+
+          console.log(userData);
         }}
       >
         <div className="flex flex-col gap-[2em]">

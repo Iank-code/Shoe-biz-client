@@ -3,8 +3,10 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "./../../index";
 
 const initialState: loginItem = {
-  id: "",
-  imageUrl: "",
+  profileImage: "",
+  name: "",
+  email: "",
+  phoneNumber: "",
   accessToken: "",
 };
 
@@ -13,9 +15,12 @@ export const loginSlice = createSlice({
   initialState,
   reducers: {
     updateLoginState: (state, action: PayloadAction<loginItem>) => {
-      const { id, imageUrl, accessToken } = action.payload;
-      state.id = id;
-      state.imageUrl = imageUrl;
+      const { name, email, phoneNumber, profileImage, accessToken } =
+        action.payload;
+      state.name = name;
+      state.email = email;
+      state.phoneNumber = phoneNumber;
+      state.profileImage = profileImage;
       state.accessToken = accessToken;
     },
   },

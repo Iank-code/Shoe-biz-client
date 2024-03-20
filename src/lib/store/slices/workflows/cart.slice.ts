@@ -1,9 +1,7 @@
 "use client";
-import { useMemo } from "react";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ProductType } from "@/utils/helpers/types";
 
-// Define the state type
 interface CartItem {
   product: ProductType;
   quantity: number;

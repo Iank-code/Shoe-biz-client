@@ -20,11 +20,6 @@ export default function LoginPage() {
         className="flex flex-col justify-center items-center gap-4 py-[5em]"
         onSubmit={(e) => {
           e.preventDefault();
-          // const { userData } = usePost(
-          //   email,
-          //   password,
-          //   "http://localhost:5000/api/v1/customer/login"
-          // );
           fetch("http://localhost:5000/api/v1/customer/login", {
             method: "POST",
             headers: {
@@ -86,6 +81,7 @@ export default function LoginPage() {
             <div className="flex flex-col">
               <input
                 type="submit"
+                value="Login"
                 className="cursor-pointer bg-blue-500 outline-none text-white py-2 px-4 rounded-md"
               />
               <Link href="/forgot-password">Forgot Password?</Link>

@@ -22,6 +22,7 @@ export default function Orders() {
           localStorage.clear();
           window.location.reload();
         }
+        console.log(data);
         setOrders(data.orders);
       });
   }, []);
@@ -30,36 +31,34 @@ export default function Orders() {
     <div className="flex flex-col gap-[4em] items-start justify-center mt-[3em]">
       {orders &&
         orders.map((order: any, index) => {
-          const calculateTotalAmount = order.customerOrderInfo.reduce(
-            (total: any, item: any) => {
-              // const numericValue = parseFloat
-              // console.log(item.productsInfo.map((shoe:any) => shoe.newPrice));
-              let price: number;
-              item.productsInfo.forEach((shoe: any) => {
-                price = parseFloat(shoe.newPrice);
-              });
+          // const calculateTotalAmount = order.customerOrderInfo.reduce(
+          //   (total: any, item: any) => {
+          //     // const numericValue = parseFloat
+          //     // console.log(item.productsInfo.map((shoe:any) => shoe.newPrice));
+          //     let price: number;
+          //     item.productsInfo.forEach((shoe: any) => {
+          //       price = parseFloat(shoe.newPrice);
+          //     });
 
-              const units = item.units
-            }
-          );
+          //     const units = item.units
+          //   }
+          // );
           return (
             <div key={index}>
               <div>
-                <h2>{order.id}</h2>
-                {order.customerOrderInfo.map((shoe: any) => {
+                <h2>Order Id: {order.id}</h2>
+                {order.items.map((shoe: any) => {
+                  console.log(shoe);
                   return (
                     <div key={shoe.id} className="flex flex-col gap-[1em] mt-5">
-                      {shoe.productsInfo.map((info: any) => {
-                        return (
-                          <div key={info.id} className="flex flex-col">
-                            <span>{info.name}</span>
-                            <div className="flex gap-[20px]">
-                              <span>Ksh: {info.newPrice}</span>
-                              <span>size {shoe.shoeSize}</span>
-                            </div>
-                          </div>
-                        );
-                      })}
+                      <div key={shoe.product.id} className="flex gap-4">
+                        <span>Name: {shoe.product.name}</span>
+                        <span>Units: {shoe.quantity}</span>
+                        <span>size: {shoe.size}</span>
+                        <div className="flex gap-[20px]">
+                          <span>Ksh: {shoe.product.newPrice}</span>
+                        </div>
+                      </div>
                     </div>
                   );
                 })}

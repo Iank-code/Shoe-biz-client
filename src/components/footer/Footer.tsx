@@ -55,7 +55,7 @@ export default function Footer() {
             <div className="flex gap-3 mt-[4em] mobile:mt-[1em]">
               {marketImgs.map((icon, index) => {
                 return (
-                  <a href={icon.href} target="_black" key={index}>
+                  <a href={`https://${icon.href}`} target="_black" key={index}>
                     <Image alt={icon.href} src={icon.img} height={50} />
                   </a>
                 );

@@ -5,8 +5,9 @@ import { IconSettings, IconReceipt2, IconLogout } from "@tabler/icons-react";
 import classes from "./userdash.module.scss";
 import Orders from "./pages/Orders";
 import Setting from "./pages/Setting";
-import { IconArrowBackUp } from "@tabler/icons-react";
+import { IconArrowBackUp, IconBrandProducthunt } from "@tabler/icons-react";
 import { useSelector } from "react-redux";
+import AddProducts from "./pages/AddProducts";
 
 const tabsData = [
   {
@@ -21,10 +22,24 @@ const tabsData = [
   },
 ];
 
+const sellerTabs = [
+  {
+    label: "All Products",
+    icon: IconBrandProducthunt,
+    content: <AddProducts />,
+  },
+  {
+    label: "Add Product",
+    icon: IconBrandProducthunt,
+    content: <AddProducts />,
+  },
+];
+
 export default function UserDash() {
   const loginState = useSelector((state: any) => {
     return state.login;
   });
+
   const [activeTab, setActiveTab] = useState("Order");
 
   const tabs = tabsData.map((item) => (
@@ -39,9 +54,21 @@ export default function UserDash() {
     </a>
   ));
 
-  const activeTabContent = tabsData.find(
-    (tab) => tab.label === activeTab
-  )?.content;
+  const sellerOnlyTabs = sellerTabs.map((item) => (
+    <a
+      className={classes.link}
+      data-active={item.label === activeTab || undefined}
+      key={item.label}
+      onClick={() => setActiveTab(item.label)}
+    >
+      <item.icon className={classes.linkIcon} stroke={1.5} />
+      <span>{item.label}</span>
+    </a>
+  ));
+
+  const activeTabContent =
+    tabsData.find((tab) => tab.label === activeTab)?.content ||
+    sellerTabs.find((tab) => tab.label === activeTab)?.content;
 
   return (
     <div className={classes.userDashboard}>
@@ -51,6 +78,7 @@ export default function UserDash() {
             <Text>Hello {loginState.name}</Text>
           </Group>
           {tabs}
+          {loginState.role === "Seller" && sellerOnlyTabs}
         </div>
 
         <div className={classes.footer}>

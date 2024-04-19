@@ -4,4 +4,5 @@ export type loginItem = {
   email: string;
   phoneNumber: string;
   accessToken: string;
+  role?: string;
 };

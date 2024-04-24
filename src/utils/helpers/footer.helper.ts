@@ -4,51 +4,39 @@ export const footer_links = [
     links: [
       {
         link: "Timberland",
-        href: "/#",
       },
       {
         link: "Converse",
-        href: "/#",
       },
       {
         link: "Vans Shoes",
-        href: "/#",
       },
       {
         link: "New Balance",
-        href: "/#",
       },
       {
         link: "Sketchers",
-        href: "/#",
       },
       {
         link: "Clarks",
-        href: "/#",
       },
       {
         link: "Reebook",
-        href: "/#",
       },
       {
         link: "Adidas",
-        href: "/#",
       },
       {
         link: "Puma",
-        href: "/#",
       },
       {
         link: "Loafers",
-        href: "/#",
       },
       {
-        link: "Sharpshooter",
-        href: "/#",
+        link: "Sharp shooter",
       },
       {
         link: "Nike",
-        href: "/#",
       },
     ],
   },
@@ -94,11 +82,11 @@ export const footer_links = [
     links: [
       {
         link: "Help",
-        href: "/#",
+        href: "/customer-support/help",
       },
       {
         link: "Promotion",
-        href: "/#",
+        href: "/promotions",
       },
     ],
   },
@@ -124,4 +112,3 @@ export const footer_links = [
     ],
   },
 ];
-

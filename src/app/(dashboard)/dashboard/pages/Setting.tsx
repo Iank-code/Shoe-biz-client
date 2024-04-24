@@ -16,9 +16,10 @@ import {
   Flex,
 } from "@mantine/core";
 import { useSelector } from "react-redux";
-import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function Setting() {
+  const router = useRouter();
   const loginState = useSelector((state: any) => state.login);
 
   const [phoneNumber, setPhoneNumber] = useState<string>("");
@@ -36,10 +37,9 @@ export default function Setting() {
       .then((data) => {
         if (data === "Token has expired. Login to proceed") {
           alert(data);
-          localStorage.clear();
-          window.location.reload();
+          router.push("/");
+          // window.location.reload();
         }
-        console.log(data.user);
         setProfile(data.user);
       });
   }, []);
@@ -68,7 +68,6 @@ export default function Setting() {
             })
               .then((res) => res.json())
               .then((data) => {
-                console.log(data);
                 setProfile(data.user);
               });
           }}

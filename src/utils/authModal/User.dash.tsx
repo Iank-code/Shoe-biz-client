@@ -18,7 +18,7 @@ export default function UserDash() {
         <button
           onClick={() => {
             localStorage.clear();
-            window.location.reload();
+            // window.location.reload();
           }}
         >
           Logout

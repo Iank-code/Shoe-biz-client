@@ -51,7 +51,7 @@ export default function LoginPage() {
               );
 
               router.push("/");
-              window.location.reload();
+              // window.location.reload();
             });
 
           console.log(userData);

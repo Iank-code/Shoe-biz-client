@@ -7,38 +7,42 @@ import Orders from "./pages/Orders";
 import Setting from "./pages/Setting";
 import { IconArrowBackUp, IconBrandProducthunt } from "@tabler/icons-react";
 import { useSelector } from "react-redux";
-import AddProducts from "./pages/AddProducts";
-
-const tabsData = [
-  {
-    label: "Order",
-    icon: IconReceipt2,
-    content: <Orders />,
-  },
-  {
-    label: "Profile",
-    icon: IconSettings,
-    content: <Setting />,
-  },
-];
-
-const sellerTabs = [
-  {
-    label: "All Products",
-    icon: IconBrandProducthunt,
-    content: <AddProducts />,
-  },
-  {
-    label: "Add Product",
-    icon: IconBrandProducthunt,
-    content: <AddProducts />,
-  },
-];
+import AddProducts from "./pages/admin/AddProducts";
+import { useRouter } from "next/navigation";
+import AllProducts from "./pages/admin/AllProducts";
 
 export default function UserDash() {
+  const router = useRouter();
+
   const loginState = useSelector((state: any) => {
     return state.login;
   });
+
+  const tabsData = [
+    {
+      label: "Orders",
+      icon: IconReceipt2,
+      content: <Orders />,
+    },
+    {
+      label: "Profile",
+      icon: IconSettings,
+      content: <Setting />,
+    },
+  ];
+
+  const sellerTabs = [
+    {
+      label: "All Products",
+      icon: IconBrandProducthunt,
+      content: <AllProducts />,
+    },
+    {
+      label: "Add Product",
+      icon: IconBrandProducthunt,
+      content: <AddProducts />,
+    },
+  ];
 
   const [activeTab, setActiveTab] = useState("Order");
 
@@ -96,7 +100,8 @@ export default function UserDash() {
             <span
               onClick={() => {
                 localStorage.clear();
-                window.location.reload();
+                router.push("/");
+                // window.location.reload();
               }}
             >
               Logout

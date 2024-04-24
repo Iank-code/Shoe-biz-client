@@ -10,7 +10,7 @@ import Image from "next/image";
 
 interface LinkItem {
   link: string;
-  href: string;
+  href?: string;
 }
 
 interface FooterItem {
@@ -35,9 +35,13 @@ export default function Footer() {
             <div key={index} className="flex flex-col gap-3">
               <strong className="uppercase">{items.name}</strong>
               {items.links.map((link: LinkItem, linkIndex: number) => {
+                const link_route = link.link.replace(" ", "-");
+
                 return (
                   <div key={linkIndex}>
-                    <Link href={link.href}>{link.link}</Link>
+                    <Link href={link.href ? link.href : `/shoe/category/${link_route}`}>
+                      {link.link}
+                    </Link>
                   </div>
                 );
               })}

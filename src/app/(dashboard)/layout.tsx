@@ -17,14 +17,13 @@ export default function DashboardLayout({
   const loginState = useSelector((state: any) => {
     return state.login;
   });
-  console.log(loginState);
 
   useEffect(() => {
     if (!loginState.accessToken) {
       router.push("/");
-      window.location.reload();
+      // window.location.reload();
     }
-  }, [loginState.accessToken]);
+  }, []);
   return (
     <html lang="en">
       <body className={inter.className}>

@@ -60,6 +60,7 @@ export default function AddProducts() {
               }}
             />
 
+          </Flex>
             <TextInput
               label="Description"
               placeholder="Add some description"
@@ -69,18 +70,30 @@ export default function AddProducts() {
                 setDescription(e.target.value);
               }}
             />
-          </Flex>
 
-          <TextInput
-            label="Price"
-            placeholder="Add New Price"
-            // required
-            value={price}
-            onChange={(e: any) => {
-              setPrice(e.target.value);
-            }}
-            mt="md"
-          />
+          <Flex gap={10}>
+            <TextInput
+              label="Old Price"
+              placeholder="Add Old Price"
+              // required
+              value={price}
+              onChange={(e: any) => {
+                setPrice(e.target.value);
+              }}
+              mt="md"
+            />
+
+            <TextInput
+              label="New Price"
+              placeholder="Add New Price"
+              // required
+              value={price}
+              onChange={(e: any) => {
+                setPrice(e.target.value);
+              }}
+              mt="md"
+            />
+          </Flex>
 
           <Button fullWidth mt="xl" className="bg-sky-600" type="submit">
             Add Product

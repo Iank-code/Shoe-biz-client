@@ -27,28 +27,7 @@ export default function AddProducts() {
 
       <Paper withBorder shadow="md" p={30} mt={30} radius="md">
         <form
-        //   onSubmit={(e) => {
-        //     e.preventDefault();
-        //     fetch("http://localhost:5000/api/v1/customer/profile/update", {
-        //       method: "POST",
-        //       headers: {
-        //         Authorization: `Bearer ${loginState.accessToken}`,
-        //         "Content-Type": "application/json",
-        //       },
-        //       body: JSON.stringify({
-        //         name: newName,
-        //         password: newPassword,
-        //         phoneNumber,
-        //       }),
-        //     })
-        //       .then((res) => res.json())
-        //       .then((data) => {
-        //         console.log(data);
-        //         setProfile(data.user);
-        //       });
-        //   }}
         >
-          {/* <Image /> */}
           <Flex gap={10}>
             <TextInput
               label="Product"
@@ -75,7 +54,7 @@ export default function AddProducts() {
             <TextInput
               label="Old Price"
               placeholder="Add Old Price"
-              // required
+              required
               value={price}
               onChange={(e: any) => {
                 setPrice(e.target.value);
@@ -86,7 +65,7 @@ export default function AddProducts() {
             <TextInput
               label="New Price"
               placeholder="Add New Price"
-              // required
+              required
               value={price}
               onChange={(e: any) => {
                 setPrice(e.target.value);

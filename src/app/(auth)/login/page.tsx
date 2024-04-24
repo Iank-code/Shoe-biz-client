@@ -53,8 +53,6 @@ export default function LoginPage() {
               router.push("/");
               // window.location.reload();
             });
-
-          console.log(userData);
         }}
       >
         <div className="flex flex-col gap-[2em]">

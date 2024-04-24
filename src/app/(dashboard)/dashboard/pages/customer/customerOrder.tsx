@@ -23,7 +23,6 @@ export default function CustomerOrder() {
           localStorage.clear();
           window.location.reload();
         }
-        console.log(data);
         setOrders(data.orders);
       });
   }, []);

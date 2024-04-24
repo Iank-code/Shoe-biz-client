@@ -28,7 +28,6 @@ export default function AdminOrderPage() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.data);
         setData(data.data);
       });
   }, []);

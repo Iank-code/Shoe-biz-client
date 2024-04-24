@@ -37,7 +37,6 @@ export default function LoginPage() {
             .then((data) => {
               if (data.status !== 20) {
               }
-              console.log(data);
               dispatch(
                 updateLoginState({
                   name: data.data.user.name,

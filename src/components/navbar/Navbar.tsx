@@ -13,15 +13,15 @@ import Sidebar from "./sidebar/Sidebar";
 import { useSelector } from "react-redux";
 import UserDash from "@/utils/authModal/User.dash";
 
-export default function Navbar() {
+export default function Navbar({ searchInput, setSearchInput }: {searchInput: string, setSearchInput: any}) {
   const [openAuthModal, setOpenAuthModal] = useState<boolean>(false);
   const [openSideBar, setOpenSideBar] = useState<boolean>(false);
+
   const loginState = useSelector((state: any) => {
     return state.login;
   });
 
   const authType = loginState.accessToken ? <UserDash /> : <AuthModal />;
-
   return (
     <div data-testid="navbar">
       {openSideBar ? (
@@ -47,9 +47,12 @@ export default function Navbar() {
 
         <div className="flex gap-5">
           <div className="flex items-center mobile:ml-[1em]">
+            {/* Input for search */}
             <input
               type="text"
               placeholder="I'm shopping for..."
+              value={searchInput}
+              onChange={(e) => setSearchInput(e.target.value)}
               className="border-2 focus:border-sky-500 focus:ring-sky-500 focus:outline-none rounded-md px-4 py-2 mobile:px-2 mobile:w-[200px]"
             />
             <Image

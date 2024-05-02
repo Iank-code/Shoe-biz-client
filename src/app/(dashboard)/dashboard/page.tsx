@@ -1,7 +1,12 @@
 "use client";
 import { useState } from "react";
 import { Group, Code, Paper, Text } from "@mantine/core";
-import { IconSettings, IconReceipt2, IconLogout } from "@tabler/icons-react";
+import {
+  IconSettings,
+  IconReceipt2,
+  IconLogout,
+  IconFileAnalytics,
+} from "@tabler/icons-react";
 import classes from "./userdash.module.scss";
 import Orders from "./pages/Orders";
 import Setting from "./pages/Setting";
@@ -10,6 +15,7 @@ import { useSelector } from "react-redux";
 import AddProducts from "./pages/admin/AddProducts";
 import { useRouter } from "next/navigation";
 import AllProducts from "./pages/admin/AllProducts";
+import Analytics from "./pages/admin/Analytics";
 
 export default function UserDash() {
   const router = useRouter();
@@ -17,6 +23,24 @@ export default function UserDash() {
   const loginState = useSelector((state: any) => {
     return state.login;
   });
+
+  const sellerTabs = [
+    {
+      label: "Analytics",
+      icon: IconFileAnalytics,
+      content: <Analytics/>
+    },
+    {
+      label: "All Products",
+      icon: IconBrandProducthunt,
+      content: <AllProducts />,
+    },
+    {
+      label: "Add Product",
+      icon: IconBrandProducthunt,
+      content: <AddProducts />,
+    },
+  ];
 
   const tabsData = [
     {
@@ -31,20 +55,9 @@ export default function UserDash() {
     },
   ];
 
-  const sellerTabs = [
-    {
-      label: "All Products",
-      icon: IconBrandProducthunt,
-      content: <AllProducts />,
-    },
-    {
-      label: "Add Product",
-      icon: IconBrandProducthunt,
-      content: <AddProducts />,
-    },
-  ];
-
-  const [activeTab, setActiveTab] = useState("Order");
+  const [activeTab, setActiveTab] = useState(
+    loginState.role === "Seller" ? "All Products" : "Order"
+  );
 
   const tabs = tabsData.map((item) => (
     <a
@@ -71,8 +84,8 @@ export default function UserDash() {
   ));
 
   const activeTabContent =
-    tabsData.find((tab) => tab.label === activeTab)?.content ||
-    sellerTabs.find((tab) => tab.label === activeTab)?.content;
+    sellerTabs.find((tab) => tab.label === activeTab)?.content ||
+    tabsData.find((tab) => tab.label === activeTab)?.content;
 
   return (
     <div className={classes.userDashboard}>

@@ -12,7 +12,6 @@ export default function ForgotPasswordPage() {
         className="flex flex-col justify-center items-center gap-4 py-[5em]"
         onSubmit={(e) => {
           e.preventDefault();
-          console.log({ email });
         }}
       >
         <div className="flex flex-col gap-[2em]">

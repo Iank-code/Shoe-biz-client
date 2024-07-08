@@ -8,3 +8,11 @@ export interface ProductType {
   tag: string[];
   shoeSize: string[];
 }
+
+export interface userOrderType {
+  status: Number;
+  message: string;
+  customers: number;
+  orders: number;
+  products: number;
+}

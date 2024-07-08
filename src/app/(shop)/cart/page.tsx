@@ -6,6 +6,7 @@ import {
   removeFromCart,
   increaseQuantity,
   decreaseQuantity,
+  clearCart,
 } from "@/lib/store/slices/workflows/cart.slice";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -41,6 +42,7 @@ export default function Page() {
     })
       .then((response) => response.json())
       .then((data) => console.log(data));
+    dispatch(clearCart());
   };
   return (
     <div>

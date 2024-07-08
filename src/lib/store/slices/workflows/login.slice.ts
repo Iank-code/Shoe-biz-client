@@ -8,6 +8,7 @@ const initialState: loginItem = {
   email: "",
   phoneNumber: "",
   accessToken: "",
+  role: "",
 };
 
 export const loginSlice = createSlice({
@@ -15,13 +16,14 @@ export const loginSlice = createSlice({
   initialState,
   reducers: {
     updateLoginState: (state, action: PayloadAction<loginItem>) => {
-      const { name, email, phoneNumber, profileImage, accessToken } =
+      const { name, email, phoneNumber, profileImage, accessToken,role } =
         action.payload;
       state.name = name;
       state.email = email;
       state.phoneNumber = phoneNumber;
       state.profileImage = profileImage;
       state.accessToken = accessToken;
+      state.role = role;
     },
   },
 });

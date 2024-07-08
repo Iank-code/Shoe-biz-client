@@ -1,6 +1,7 @@
 "use client";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ProductType } from "@/utils/helpers/types";
+import { Target } from "framer-motion";
 
 interface CartItem {
   product: ProductType;
@@ -66,6 +67,7 @@ const cartSlice = createSlice({
         };
       }
     },
+
     decreaseQuantity: (state, action: PayloadAction<CartItem>) => {
       const { product } = action.payload;
       const existingProductIndex = state.findIndex(
@@ -85,10 +87,17 @@ const cartSlice = createSlice({
         }
       }
     },
+
+    clearCart: (state) => initialState,
   },
 });
-export const { addToCart, removeFromCart, decreaseQuantity, increaseQuantity } =
-  cartSlice.actions;
+export const {
+  addToCart,
+  removeFromCart,
+  decreaseQuantity,
+  increaseQuantity,
+  clearCart,
+} = cartSlice.actions;
 
 // Define the RootState type
 interface RootState {

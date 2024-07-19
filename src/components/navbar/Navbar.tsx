@@ -13,7 +13,7 @@ import Sidebar from "./sidebar/Sidebar";
 import { useSelector } from "react-redux";
 import UserDash from "@/utils/authModal/User.dash";
 
-export default function Navbar({ searchInput, setSearchInput }: {searchInput: string, setSearchInput: any}) {
+export default function Navbar({ searchInput, setSearchInput }: {searchInput?: string, setSearchInput?: any}) {
   const [openAuthModal, setOpenAuthModal] = useState<boolean>(false);
   const [openSideBar, setOpenSideBar] = useState<boolean>(false);
 

@@ -56,7 +56,7 @@ export default function UserDash() {
   ];
 
   const [activeTab, setActiveTab] = useState(
-    loginState.role === "Seller" ? "All Products" : "Order"
+    loginState.role === "Seller" ? "All Products" : "Orders"
   );
 
   const tabs = tabsData.map((item) => (

@@ -29,7 +29,7 @@ export default function AddProducts() {
 
   const addShoe = (event: React.FormEvent) => {
     event.preventDefault();
-    fetch("http://localhost:5000/api/v1/product/", {
+    fetch("http://localhost:4000/api/v1/product/", {
       method: "POST",
       headers: {
         Accept: "application/json",

@@ -11,7 +11,7 @@ export default function Analytics() {
   const [data, setData] = useState<userOrderType>();
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/v1/analytic/users-orders", {
+    fetch("http://localhost:d000/api/v1/analytic/users-orders", {
       method: "GET",
       headers: {
         Accept: "application/json",

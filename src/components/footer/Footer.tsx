@@ -71,7 +71,7 @@ export default function Footer() {
               className="flex gap-2 mobile:flex-col"
               onSubmit={(e) => {
                 e.preventDefault();
-                fetch("http://localhost:5000/api/v1/newsletter/register", {
+                fetch("http://localhost:4000/api/v1/newsletter/register", {
                   method: "POST",
                   headers: {
                     "Content-Type": "application/json",

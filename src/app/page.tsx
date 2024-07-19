@@ -13,7 +13,7 @@ export default function Home() {
 
   // Fetching data when page loads
   useEffect(() => {
-    fetch("http://localhost:5000/api/v1/product/getall")
+    fetch("http://localhost:4000/api/v1/product/getall")
       .then((res) => res.json())
       .then((data) => {
         setData(data.data);

@@ -28,7 +28,7 @@ export default function Setting() {
   const [profile, setProfile] = useState<any>({});
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/v1/customer/profile", {
+    fetch("http://localhost:4000/api/v1/customer/profile", {
       headers: {
         Authorization: `Bearer ${loginState.accessToken}`,
       },
@@ -54,7 +54,7 @@ export default function Setting() {
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            fetch("http://localhost:5000/api/v1/customer/profile/update", {
+            fetch("http://localhost:4000/api/v1/customer/profile/update", {
               method: "POST",
               headers: {
                 Authorization: `Bearer ${loginState.accessToken}`,

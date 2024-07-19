@@ -29,7 +29,7 @@ export default function Page() {
   const cartData = cartState;
 
   const createOrder = () => {
-    fetch("http://localhost:5000/api/v1/order/create", {
+    fetch("http://localhost:4000/api/v1/order/create", {
       method: "POST",
       headers: {
         Accept: "application/json",

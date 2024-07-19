@@ -11,7 +11,7 @@ const ProductPage = ({ params }: any) => {
   const [data, setData] = useState<ProductType[]>([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/v1/product/shop?tag=${params.tag}`)
+    fetch(`http://localhost:4000/api/v1/product/shop?tag=${params.tag}`)
       .then((response) => response.json())
       .then((data) => {
         setData(data.data);

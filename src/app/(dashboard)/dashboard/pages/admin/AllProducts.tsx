@@ -10,13 +10,13 @@ export default function AllProducts() {
 
   const [data, setData] = useState<ProductType[]>([]);
   useEffect(() => {
-    fetch("http://localhost:5000/api/v1/product/getall")
+    fetch("http://localhost:4000/api/v1/product/getall")
       .then((res) => res.json())
       .then((data) => setData(data.data));
   }, []);
 
   const deleteProduct = (productId: string) => {
-    fetch(`http://localhost:5000/api/v1/product/${productId}`, {
+    fetch(`http://localhost:4000/api/v1/product/${productId}`, {
       method: "DELETE",
       headers: {
         Accept: "application/json",

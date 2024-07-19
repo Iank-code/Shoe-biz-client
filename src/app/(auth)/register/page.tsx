@@ -17,7 +17,7 @@ export default function LoginPage() {
         className="flex flex-col justify-center items-center gap-4 py-[5em]"
         onSubmit={(e) => {
           e.preventDefault();
-          fetch("http://localhost:5000/api/v1/customer/register", {
+          fetch("http://localhost:4000/api/v1/customer/register", {
             method: "POST",
             headers: {
               Accept: "application/json",

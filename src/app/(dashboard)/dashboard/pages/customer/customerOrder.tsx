@@ -8,7 +8,7 @@ export default function CustomerOrder() {
   const loginState = useSelector((state: any) => state.login);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/v1/order/", {
+    fetch("http://localhost:4000/api/v1/order/", {
       headers: {
         Authorization: `Bearer ${loginState.accessToken}`,
       },

@@ -16,7 +16,7 @@ export default function ProductViewPage({ params }: any) {
   const colors: string[] = ["red", "blue", "green", "black"];
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/v1/product/product/${params.id}`)
+    fetch(`http://localhost:4000/api/v1/product/product/${params.id}`)
       .then((res) => res.json())
       .then((data) => {
         setProduct(data.data);

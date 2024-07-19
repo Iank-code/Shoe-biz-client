@@ -21,7 +21,7 @@ export default function AdminOrderPage() {
   });
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/v1/order/all/admin", {
+    fetch("http://localhost:4000/api/v1/order/all/admin", {
       headers: {
         Authorization: `Bearer ${loginState.accessToken}`,
       },

@@ -10,7 +10,6 @@ import {
 } from "@/lib/store/slices/workflows/cart.slice";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import trashIcon from "./../../../../public/navbar/trash.svg";
 import Image from "next/image";
 import { ProductType } from "@/utils/helpers/types";
 

@@ -7,6 +7,7 @@ export interface ProductType {
   images: string[];
   tag: string[];
   shoeSize: string[];
+  colorVariants: colorVariant[]
 }
 
 export interface userOrderType {
@@ -15,4 +16,10 @@ export interface userOrderType {
   customers: number;
   orders: number;
   products: number;
+}
+
+export interface colorVariant {
+  color: String,
+  price: String,
+  image: String,
 }

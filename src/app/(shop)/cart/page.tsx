@@ -13,7 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Image from "next/image";
 import { ProductType } from "@/utils/helpers/types";
 
-export default function Page() {
+export default function page() {
   const dispatch = useDispatch();
 
   const cartState = useSelector((state: any) => {
@@ -86,6 +86,7 @@ export default function Page() {
                         <div className="mt-4 sm:mt-0 sm:pr-9">
                           <div className="flex gap-2">
                             <button
+                              type="button"
                               className="bg-blue-500 text-white py-[1]px px-3 outline-none rounded-sm text-lg"
                               onClick={() => dispatch(decreaseQuantity(product))}
                             >
@@ -93,6 +94,7 @@ export default function Page() {
                             </button>
                             <span>{product.quantity}</span>
                             <button
+                              type="button"
                               className="bg-blue-500 text-white py-[1]px px-3 outline-none rounded-sm text-lg"
                               onClick={() => dispatch(increaseQuantity(product))}
                             >
@@ -115,7 +117,7 @@ export default function Page() {
 
                       <p className="mt-4 flex space-x-2 text-sm text-gray-700">
                         <svg className="h-5 w-5 flex-shrink-0 text-green-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                          <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                          <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
                         </svg>
                         <span>In stock</span>
                       </p>
@@ -143,7 +145,7 @@ export default function Page() {
                     <a href="#" className="ml-2 flex-shrink-0 text-gray-400 hover:text-gray-500">
                       <span className="sr-only">Learn more about how shipping is calculated</span>
                       <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM8.94 6.94a.75.75 0 11-1.061-1.061 3 3 0 112.871 5.026v.345a.75.75 0 01-1.5 0v-.5c0-.72.57-1.172 1.081-1.287A1.5 1.5 0 108.94 6.94zM10 15a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+                        <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM8.94 6.94a.75.75 0 11-1.061-1.061 3 3 0 112.871 5.026v.345a.75.75 0 01-1.5 0v-.5c0-.72.57-1.172 1.081-1.287A1.5 1.5 0 108.94 6.94zM10 15a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
                       </svg>
                     </a>
                   </dt>
@@ -155,7 +157,7 @@ export default function Page() {
                     <a href="#" className="ml-2 flex-shrink-0 text-gray-400 hover:text-gray-500">
                       <span className="sr-only">Learn more about how tax is calculated</span>
                       <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM8.94 6.94a.75.75 0 11-1.061-1.061 3 3 0 112.871 5.026v.345a.75.75 0 01-1.5 0v-.5c0-.72.57-1.172 1.081-1.287A1.5 1.5 0 108.94 6.94zM10 15a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+                        <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM8.94 6.94a.75.75 0 11-1.061-1.061 3 3 0 112.871 5.026v.345a.75.75 0 01-1.5 0v-.5c0-.72.57-1.172 1.081-1.287A1.5 1.5 0 108.94 6.94zM10 15a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
                       </svg>
                     </a>
                   </dt>

@@ -12,6 +12,8 @@ export default function ProductViewPage({ params }: any) {
   const [product, setProduct] = useState<ProductType>();
   const [unit, setUnit] = useState<string>("1");
   const [value, setValue] = useState<string>("40");
+  const [selectedColorVariant, setSelectedColorVariant] =
+    useState<colorVariant>();
 
   const colors: string[] = ["red", "blue", "green", "black"];
 
@@ -20,21 +22,26 @@ export default function ProductViewPage({ params }: any) {
       .then((res) => res.json())
       .then((data) => {
         setProduct(data.data);
+        // Set the initial selected color variant to the first one
+        setSelectedColorVariant(data.data.colorVariants[0]);
       });
-  }, []);
+  }, [params.id]);
+
   const numericValue: number = parseFloat(unit);
 
   return (
     <div>
       <Navbar />
-      {product && (
+      {product && selectedColorVariant && (
         <div className="flex gap-4 justify-center items-center my-4">
           <div className="flex flex-col-reverse px-4 sm:flex-row gap-5 md:gap-[2em] py-4 sm:py-[2em]">
             <div className="flex flex-col items-start justify-center mt-4 sm:mt-[2em] gap-4 flex-grow">
               <div className="flex w-full flex-col gap-3 items-start">
+                {/* Main Image */}
                 <img
-                  src={product.colorVariants[0].image}
+                  src={selectedColorVariant.image}
                   className="rounded-lg w-full h-auto max-h-[400px] object-contain"
+                  alt="Selected color variant"
                 />
 
                 {/* Sub Images */}
@@ -47,6 +54,9 @@ export default function ProductViewPage({ params }: any) {
                           src={colorVariant.image}
                           alt={`Color variant ${index}`}
                           className="rounded-md w-[80px] h-[80px] object-contain cursor-pointer border hover:border-blue-500"
+                          onClick={() => {
+                            setSelectedColorVariant(colorVariant); // Update the selected color variant on click
+                          }}
                         />
                       );
                     }
@@ -57,7 +67,7 @@ export default function ProductViewPage({ params }: any) {
               <Select
                 label="Size"
                 placeholder="Pick a size"
-                data={product && product.shoeSize}
+                data={product.shoeSize}
                 defaultValue="40"
                 allowDeselect={false}
                 onChange={(value) => {
@@ -65,13 +75,16 @@ export default function ProductViewPage({ params }: any) {
                 }}
               />
 
+              {/* Pricing Information */}
               <div className="flex gap-4">
                 <span className="line-through mobile:text-[12px] text-[15px] text-gray-600">
-                  Ksh {product && product.oldPrice}
+                  Ksh {product.oldPrice}
                 </span>
-                <strong>Ksh {product && product.colorVariants[0].price}</strong>
+                <strong>Ksh {selectedColorVariant.price}</strong>{" "}
+                {/* Update price based on selected color variant */}
               </div>
 
+              {/* Quantity Input and Add to Cart Button */}
               <div className="flex gap-4">
                 <input
                   type="number"

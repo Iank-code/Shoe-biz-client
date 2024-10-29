@@ -46,7 +46,7 @@ export default function ProductViewPage({ params }: any) {
                           key={index}
                           src={colorVariant.image}
                           alt={`Color variant ${index}`}
-                          className="rounded-md w-[80px] h-[80px] object-contain cursor-pointer"
+                          className="rounded-md w-[80px] h-[80px] object-contain cursor-pointer border hover:border-blue-500"
                         />
                       );
                     }

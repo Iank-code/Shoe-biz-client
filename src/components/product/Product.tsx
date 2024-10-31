@@ -26,6 +26,9 @@ export default function Product({
   };
 
   const dispatch = useDispatch()
+  function addToWishList(id: string) {
+    
+  }
   return (
     <div className="cursor-pointer rounded-lg p-4 relative group">
       <img
@@ -43,7 +46,7 @@ export default function Product({
       </div>
 
       <div className="absolute top-2 left-2 p-2 bg-white rounded-full shadow-md">
-        <FaHeart className="text-green-500 text-xl" />
+        <FaHeart className="text-green-500 text-xl" onClick={addToWishList(id)}/>
       </div>
 
       <div className="absolute top-2 right-2 p-2 bg-white rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300">

@@ -1,0 +1,3 @@
+class productService {
+  async addToWishList() {}
+}

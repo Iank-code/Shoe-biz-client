@@ -25,10 +25,8 @@ export default function DashboardLayout({
     }
   }, []);
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <AppProviders>{children}</AppProviders>
-      </body>
-    </html>
+    <body className={inter.className}>
+      <AppProviders>{children}</AppProviders>
+    </body>
   );
 }

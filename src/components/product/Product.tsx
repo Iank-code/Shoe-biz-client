@@ -25,10 +25,8 @@ export default function Product({
     shoeSize,
   };
 
-  const dispatch = useDispatch()
-  function addToWishList(id: string) {
-    
-  }
+  // const dispatch = useDispatch();
+  // function addToWishList(id: string) {}
   return (
     <div className="cursor-pointer rounded-lg p-4 relative group">
       <img
@@ -45,24 +43,10 @@ export default function Product({
         <strong>Ksh: {newPrice}</strong>
       </div>
 
-      <div className="absolute top-2 left-2 p-2 bg-white rounded-full shadow-md">
+      {/* <div className="absolute top-2 left-2 p-2 bg-white rounded-full shadow-md">
         <FaHeart className="text-green-500 text-xl" onClick={addToWishList(id)}/>
-      </div>
+      </div> */}
 
-      <div className="absolute top-2 right-2 p-2 bg-white rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-        <FaShoppingCart
-          className="text-gray-700 text-xl"
-          onClick={() => {
-            dispatch(
-              addToCart({
-                product: product,
-                quantity: 1,
-                size: "40",
-              }
-            ))
-          }}
-        />
-      </div>
     </div>
   );
 }
